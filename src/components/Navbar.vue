@@ -1,5 +1,5 @@
 <template>
-    <nav>
+    <nav class="container">
         <div class="logo">
             <div>
                 <h1>Valid</h1>
@@ -61,7 +61,6 @@ export default {
             ul {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;
-                list-style: none;
                 background: pink;
 
                 li {
@@ -71,7 +70,6 @@ export default {
                     padding: 2.5rem;
                 }
                 a {
-                    text-decoration: none;
                     color: black;
                 }
             }

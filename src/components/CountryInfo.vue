@@ -1,9 +1,8 @@
 <template>
     <div class="container">
-        <div class="card" v-for="country in countries" :key="country.id">
-            <router-link :to=" '/info/' + country.Slug"><h3>{{country.Country}}</h3></router-link>
-            <p>{{country.Slug}}</p>
-            <p>{{country.ISO2}}</p>
+        <div class="card">
+            <h1>Today:</h1>
+            <p>Confirmed: {{info.Confirmed}}</p>
         </div>
     </div>
 </template>
@@ -14,13 +13,13 @@ import axios from "axios"
 export default {
     data() {
         return {
-            countries: []
+            info: {}
         }
     },
     mounted() {
-        axios.get('https://api.covid19api.com/countries').then(res => {
+        axios.get('https://api.covid19api.com/dayone/country/' + this.$route.params.country).then(res => {
             console.log(res.data);
-            this.countries = res.data;
+            this.info = res.data.reverse()[0];
         })
     }
 }
